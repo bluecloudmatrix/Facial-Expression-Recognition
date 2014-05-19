@@ -1,2 +1,3 @@
-文件夹eyedetect下是睁眼检测的所有程序（利用训练得到的分类器进行检测）
-toMaze.mouth中是嘴部状态检测的主要程序（这是自己原创的算法）
++The directory 'eyedetect' includes the source code about detecting the open eyes on a picture. It is based Adaboost, and uses the cascade classifier.
+
++The directory 'toMaze.mouth' include the core code about detecting the state of mouths. I use my own algorithm which based on LBP characteristics and statistic analysis.
