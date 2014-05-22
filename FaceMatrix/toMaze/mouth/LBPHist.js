@@ -1,6 +1,7 @@
 /**
  * class function LBPHist用于计算目标区域的LBP直方图
  * 2013/8/26 15:23pm
+ * authot@liuqiushan
  **/
 (function() {
 

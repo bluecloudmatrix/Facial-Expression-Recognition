@@ -1,6 +1,7 @@
 /**
  * 用于快速排序的非递归式
  * 2013/8/15
+ * authot@liuqiushan
  **/
 (function() {
 

@@ -1,6 +1,7 @@
 /**
  * RGB转化为YCbCr颜色空间
  * 2013/8/15
+ * authot@liuqiushan
  **/
 (function() {
 	

@@ -1,6 +1,7 @@
 /**
  * 将目标直方图序列显示在canvas上
  * 2013/8/26
+ * authot@liuqiushan
  **/
 (function() {
 

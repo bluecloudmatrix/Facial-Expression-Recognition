@@ -1,6 +1,7 @@
 /**
  *使用三次贝塞尔曲线模拟椭圆
  *此方法也会产生当lineWidth较宽，椭圆较扁时，长轴端较尖锐，不平滑的现象
+ *authot@liuqiushan
  */
 (function() {
 	var namespace = FACEMATRIX.namespace('FACEMATRIX.faceEdge.faceOval');

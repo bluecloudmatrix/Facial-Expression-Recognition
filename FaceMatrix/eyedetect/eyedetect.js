@@ -1,7 +1,7 @@
 /**
  * we use it to judge whether eye is open or close
  * 2013/8/6 23:39
- * 杩囩▼鐢ㄦ柟娉�
+ * authot@liuqiushan
  */
  function eyedetect() {
 	

@@ -1,6 +1,7 @@
 /**
  * 膨胀处理
  * 2013/8/15
+ * authot@liuqiushan
  **/
 (function() {
 	

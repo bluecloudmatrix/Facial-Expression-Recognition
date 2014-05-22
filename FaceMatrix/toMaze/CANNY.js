@@ -1,6 +1,7 @@
 /**
  * canny边缘提取
  * 2013/8/17
+ * authot@liuqiushan
  **/
 (function() {
 

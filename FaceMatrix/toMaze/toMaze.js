@@ -2,6 +2,7 @@
  * 响应按钮Convert事件
  * 用于利用已经判断出的信息（人眼状态和人脸椭圆）生成迷宫矩阵
  * 2013/8/14
+ * authot@liuqiushan
  **/
 (function() {
 

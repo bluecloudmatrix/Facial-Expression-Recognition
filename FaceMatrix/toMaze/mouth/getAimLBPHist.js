@@ -1,6 +1,7 @@
 /**
  * 计算LBP直方图
  * 2013/8/26 14:42pm
+ * authot@liuqiushan
  **/
 (function() {
 

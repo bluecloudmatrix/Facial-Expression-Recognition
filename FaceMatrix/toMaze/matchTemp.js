@@ -1,6 +1,6 @@
 /**
- * 鏍规嵁鐪肩潧鐘舵�璇嗗埆鍜屽槾宸寸姸鎬佽瘑鍒繑鍥炵粨鏋滃尮閰嶆ā鏉�
  * 2013/8/27 14:18pm
+ * authot@liuqiushan
  **/
 (function() {
 
@@ -15,13 +15,13 @@
 			
 			if(result_eye == 1) { //open
 			
-				eye_random = Math.floor(Math.random()*2+1); //闅忔満鐢熸垚1-2
+				eye_random = Math.floor(Math.random()*2+1); //
 				eye_path = "photo/maze_temp/eye_open/eye_module_0" + eye_random + ".png";
 				eye_module_img.src = eye_path;
 			
 			} else if(result_eye == 0) { //close
 			
-				eye_random = Math.floor(Math.random()*2+1); //闅忔満鐢熸垚1-2
+				eye_random = Math.floor(Math.random()*2+1); //
 				eye_path = "photo/maze_temp/eye_close/eye_module_0" + eye_random + ".png";
 				eye_module_img.src = eye_path;
 				
@@ -36,10 +36,10 @@
 					
 				eContext.drawImage(eye_module_img, 0, 0, eye_module_img.width, eye_module_img.height, 0, 0, eCanvas.width, eCanvas.height);
 				
-				//鑾峰緱鍏ュ彛銆佷紶閫侀棬鍜岄�琛岃瘉鐨勪綅缃紝骞跺綊鐧�
+				//
 				FACEMATRIX.toMaze.eyeGetElePos(eContext, eCanvas.width, eCanvas.height);
 				
-				//浜屽�鍖�
+				//
 				FACEMATRIX.func.binary(eContext, 0, 0, eCanvas.width, eCanvas.height, eCanvas.width, eCanvas.height);
 				
 				var eDataBuffer = new ArrayBuffer();
@@ -51,7 +51,7 @@
 				//var oContext = output.getContext('2d');
 				//oContext.putImageData(eData, 0, 0);
 				
-				//灏嗗浘鐗囨暟鎹弽鏄犲湪鐪肩潧杩峰鐭╅樀涓�
+				//
 				FACEMATRIX.toMaze.tempMapping(GLOBALTOM.EYE.mapMatrix, eData, 3);
 				
 			};

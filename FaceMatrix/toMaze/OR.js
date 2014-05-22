@@ -2,6 +2,7 @@
  * 人脸矩阵和头发边缘矩阵，眼睛模板迷宫矩阵，嘴巴和鼻子模板迷宫矩阵相或
  * 0(background) || 2(wall) = 2
  * 2013/8/17
+ * authot@liuqiushan
  **/
 (function () {
 

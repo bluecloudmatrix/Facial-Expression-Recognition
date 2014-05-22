@@ -1,6 +1,7 @@
 /**
  * 灰度化
  * 2013/8/26 18:27pm
+ * authot@liuqiushan
  **/
 (function() {
 

@@ -1,6 +1,7 @@
 /**
  * 图像二值化处理
  * 2013/8/24 3:57am
+ * authot@liuqiushan
  **/
 (function() {
 

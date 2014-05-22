@@ -1,6 +1,7 @@
 /**
  * 光照补偿
  * 2013/8/15
+ * authot@liuqiushan
  **/
 (function() {
 	

@@ -1,6 +1,7 @@
 /**
  * 快速排序nlogn
  * 2013/8/15
+ * authot@liuqiushan
  **/
 (function() {
 	

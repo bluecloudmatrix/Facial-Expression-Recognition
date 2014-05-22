@@ -1,6 +1,7 @@
 /**
  * 根据肤色模型统计数据进行肤色判断
  * 2013/8/15
+ * authot@liuqiushan
  **/
 (function() {
 	

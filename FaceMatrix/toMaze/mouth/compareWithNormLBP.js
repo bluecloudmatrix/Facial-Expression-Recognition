@@ -1,6 +1,7 @@
 /**
- * 璁＄畻寰楀埌鐨勭洿鏂瑰浘涓庢爣鍑嗘瘮杈冿紝杩涜鐘舵�璇嗗埆
+ * Here we could set different judgement standard according to different environments
  * 2013/8/26
+ * authot@liuqiushan
  **/
 (function() {
 

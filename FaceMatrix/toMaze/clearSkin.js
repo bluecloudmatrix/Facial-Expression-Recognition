@@ -1,6 +1,7 @@
 /**
  * 侦测皮肤区域时清除嘴部和眼部区域
  * 2013/8/18
+ * authot@liuqiushan
  **/
 (function() {
 

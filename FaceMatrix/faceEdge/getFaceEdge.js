@@ -1,7 +1,7 @@
 /**
  * 2013/8/14
  * use faceOval and GLOBALTOM.AppEyeArea to get the face edge
- *
+ * authot@liuqiushan
  **/
 (function() {
 	

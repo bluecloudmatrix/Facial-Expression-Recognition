@@ -1,6 +1,7 @@
 /**
  * an object used to canny and show maze
  * 2013/8/14
+ * authot@liuqiushan
  **/
 (function() {
 

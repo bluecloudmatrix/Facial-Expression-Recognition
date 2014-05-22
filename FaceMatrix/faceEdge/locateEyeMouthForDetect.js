@@ -1,6 +1,7 @@
 /**
  * 寻找五官的位置
  * 2013/8/24 3:23am
+ * authot@liuqiushan
  **/
 (function() {
 

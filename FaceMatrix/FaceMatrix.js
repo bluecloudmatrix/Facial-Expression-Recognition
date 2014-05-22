@@ -1,5 +1,6 @@
 /**
  * FACEMATRIX Global Abatement
+ * authot@liuqiushan
  */
 var FACEMATRIX = {}; /*global 2*/
  
