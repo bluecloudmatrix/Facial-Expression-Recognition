@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<title>Maze Face loading ...</title>
+        <link rel="stylesheet" type="text/css" href="css/loadView/demo.css" />
+        <link rel="stylesheet" type="text/css" href="css/loadView/style.css" />
+		<script type="text/javascript">
+			function redirect(){
+				setTimeout("window.location.href='startView.html?backurl='+window.location.href",3000);
+			}
+		</script>
+	</head>
+    <body style="background:white;" onload="redirect();">
+		<div style="width:540px; height:960px;position:absolute; left:0px; top:0px;">
+			<img style="width:540px; height:960x;" src="images/loadView/load.png" />				
+		</div>
+		<section class="main">
+			<div id="ballWrapper">
+				<div id="ball"></div>
+				<div id="ballShadow"></div>			
+			</div>				
+		</section>                
+    </body>
+</html>

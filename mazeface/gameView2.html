@@ -1,0 +1,446 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+	
+		<!--<script type="text/javascript" src="../js/MyWebSocket/MyWebSocket.js"></script>-->
+		
+		<!-- FaceMatrix.js must be first of FaceMatrix-->
+		<script type="text/javascript" src="js/FaceMatrix/FaceMatrix.js"></script>
+		<script type="text/javascript" src="js/webRTCServer/webRTCServer.js"></script>	
+		
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/MazeMatrix.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/toMaze.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/rgb2YCbCr.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/judgeSkin.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/dilate.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/erode.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/connectedRegion.js"></script>
+		
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/CANNY.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/clearSkin.js"></script>
+		
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/OR.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/AND.js"></script>
+		
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/matchTemp.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/tempMapping.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/eyeGetElePos.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/mouthGetElePos.js"></script>
+		
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/lightCompensation.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/quick_sort.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/adjustRGB.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/partition.js"></script>
+		
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/mouth/mouthDetect.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/mouth/getAimLBPHist.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/mouth/LBPHist.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/mouth/drawHists.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/toMaze/mouth/compareWithNormLBP.js"></script>
+		
+		<script type="text/javascript" src="js/FaceMatrix/eyedetect/eye_cascade.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/eyedetect/haarDetect.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/eyedetect/eyedetect.js"></script>	
+		
+		<script type="text/javascript" src="js/FaceMatrix/facedetect/face.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/facedetect/ccv.js"></script>	
+		
+		<script type="text/javascript" src="js/FaceMatrix/faceEdge/getFaceEdge.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/faceEdge/locateEyeMouthForDetect.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/faceEdge/faceOval/BezierEllipse.js"></script>
+		
+		<script type="text/javascript" src="js/FaceMatrix/func/requestAnimationFrame.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/func/binary.js"></script>
+		<script type="text/javascript" src="js/FaceMatrix/func/gray.js"></script>
+			
+		<script type="text/javascript" src="js/libs/jsfeat-min.js"></script>
+		<script type="text/javascript" src="js/libs/jquery.min.js"></script>
+		<script type="text/javascript" src="js/libs/three49.js"></script>
+		
+		<script type="text/javascript" src="js/tools/Stats.js"></script>
+		<script type="text/javascript" src="js/tools/THREEx.FullScreen.js"></script>
+		<script type="text/javascript" src="js/tools/THREEx.WindowResize.js"></script>
+		<script type="text/javascript" src="js/tools/ObjSeg.js"></script>
+		<script type="text/javascript" src="js/tools/LinkedList.js"></script>
+
+		<!-- 3D Scene Building -->
+		<script type="text/javascript" src="js/gameView/3DScene/ammo.js"></script>
+		<script type="text/javascript" src="js/gameView/3DScene/physijs_worker.js"></script>
+		<script type="text/javascript" src="js/gameView/3DScene/physi.js"></script>
+		<script type="text/javascript" src="js/gameView/3DScene/finalAim.js"></script>
+		<script type="text/javascript" src="js/gameView/3DScene/initFinalAim.js"></script>
+		<script type="text/javascript" src="js/gameView/3DScene/GatePass.js"></script>
+		<script type="text/javascript" src="js/gameView/3DScene/initGatePass.js"></script>
+		<script type="text/javascript" src="js/gameView/3DScene/Portal.js"></script>
+		<script type="text/javascript" src="js/gameView/3DScene/initPortal.js"></script>
+		<script type="text/javascript" src="js/gameView/3DScene/scene.js"></script>	
+		<script type="text/javascript" src="js/gameView/3DScene/collision.js"></script>			
+		<script type="text/javascript" src="js/gameView/3DScene/player.js"></script>		
+		<script type="text/javascript" src="js/gameView/3DScene/enemy.js"></script>
+		<script type="text/javascript" src="js/gameView/3DScene/changeSkin.js"></script>
+		<script type="text/javascript" src="js/gameView/3DScene/props2.js"></script>
+		<script type="text/javascript" src="js/gameView/3DScene/particles.js"></script>
+		<script type="text/javascript" src="js/gameView/3DScene/to3D2.js"></script>
+		
+		<script type="text/javascript" src="js/gameView/3DScene/flash/cameraFlash.js"></script>
+		<script type="text/javascript" src="js/gameView/3DScene/flash/fadeFlash.js"></script>	
+		
+		<script type="text/javascript" src="js/gameView/gameView.js"></script>
+		<!--<script type="text/javascript" src="../js/gameView/faceControl/App.js"></script>
+		<script type="text/javascript" src="../js/gameView/faceControl/faceTriggerClosure.js"></script>-->
+		<script type="text/javascript" src="js/gameView/faceControl/faceTriggerSecond.js"></script>
+		<script type="text/javascript" src="js/gameView/faceControl/faceTriggerThird.js"></script>
+		
+		<script type="text/javascript" src="js/gameView/headtrackr/main.js"></script>
+		<script type="text/javascript" src="js/gameView/headtrackr/ccv.js"></script>
+		<script type="text/javascript" src="js/gameView/headtrackr/cascade.js"></script>
+		<script type="text/javascript" src="js/gameView/headtrackr/whitebalance.js"></script>
+		<script type="text/javascript" src="js/gameView/headtrackr/facetrackr.js"></script>
+		<script type="text/javascript" src="js/gameView/headtrackr/headposition.js"></script>
+		<script type="text/javascript" src="js/gameView/headtrackr/ui.js"></script>
+		<script type="text/javascript" src="js/gameView/headtrackr/smoother.js"></script>
+		<script type="text/javascript" src="js/gameView/headtrackr/camshift.js"></script>
+		
+		<script type="text/javascript" src="js/gameView/sceneChange/eyeMazeRemove.js"></script>
+		<script type="text/javascript" src="js/gameView/sceneChange/mouthMazeAdd.js"></script>
+
+		<script type="text/javascript" src="js/publicJs/playSound.js"></script>										
+		<style>
+			body {
+				background-color: #326696;
+				margin: 0px;
+				overflow: hidden;
+				font-family:Monospace;
+				font-size:13px;
+				text-align:center;
+				font-weight: bold;
+				text-align:center;
+			}
+				
+			#vcanvas {
+				width: auto;
+				height: 100%;
+				background: black;
+				-webkit-transform: scale(-1, 1);
+			}
+			
+			#control {
+				width: 320;
+				height: 240;
+				position: absolute;
+				left: 50%;
+				margin-left: -160px;
+				top:50%;
+				margin-top: -120px;	
+				-webkit-transform: scale(-1, 1);
+			} 
+
+			
+		</style>		
+	</head>
+	
+	<body>
+		
+		<audio id="bgSound" loop="loop">
+			<!--<source src="../music/gameBackGround.OGG">
+			<source src="music/gameBackGround.mp3">-->
+			<source src="music/anny.mp3">
+		</audio>
+	
+		<div id="scen1">	
+			<img src="images/gameView/frame.png" style="position:absolute; left:272px; top:-1px;" />
+			<img name="go" id="snap" src="images/gameView/go.png" style="position:absolute; left:650px; top:590px;" onmouseover="mouseOverGo();" onmouseout="mouseOutGo();" />
+			<canvas id="vcanvas" width="640" height="480" style="position:absolute;left:360px;top:100px;width:640px;height:480px"></canvas>
+			<canvas id="boundary" width="640" height="480" style="position:absolute;left:360px;top:100px;width:640px;height:480px"></canvas>
+		</div>
+				
+		<div id="scen2">
+			<img src="images/gameView/frame.png" style="position:absolute; left:272px; top:-1px;" />
+			<img id="b2" name="convert" src="images/gameView/convert.png" style="position:absolute; left:650px; top:590px;" onmouseover="mouseOverConvert();" onmouseout="mouseOutConvert();" onClick="FACEMATRIX.toMaze.toMaze()" />	
+			<img name="clear" src="images/gameView/clear.png" style="position:absolute; left:1000px; top:300px; display:none;" />
+			<img name="sleepy" src="images/gameView/sleepy.png" style="position:absolute; left:1000px; top:300px; display:none;" />
+			<img name="serious" src="images/gameView/serious.png" style="position:absolute; left:1000px; top:350px; display:none;" />
+			<img name="laugh" src="images/gameView/laugh.png" style="position:absolute; left:1000px; top:350px; display:none;" />
+			<canvas id="output" width="640" height="480" style="position:absolute;left:360px;top:100px;width:640px;height:480px"></canvas>
+			<div id="result" style="position:absolute;left:0px;top:30px;width:90px;height:40px">
+			</div>
+			
+			<div id="show">
+				<canvas id="oval" width="640" height="480" style="position:absolute;left:360px;top:100px;width:640px;height:480px"></canvas>
+			</div>
+		</div>
+		
+		<div id="scen3">
+			<div id="b3" style="position:absolute;margin:0;left:0px;top:0px">
+				<!-- demonstrate the scene of game -->
+				<img name="to3d" src="images/gameView/play.png" style="position:absolute; left:650px; top:590px;" onmouseover="mouseOverTo3d();" onmouseout="mouseOutTo3d();"  onClick="to3D2()" />
+			</div>
+		</div>
+		
+		<!-- 用于人脸控制小球在3D场景中移动 -->
+		<!-- 添加3D场景 -->
+		<div id="ThreeJS" style="position: absolute; left:0px; top:0px; ">
+			<img src="images/gameView/bar.png" style="position:absolute; right:0px; top:10px;" />
+			<img src="images/gameView/money.png" style="position:absolute; left:0px; bottom:0px;" />
+			<img src="images/gameView/littlemap.png" style="position:absolute; right:0px; bottom:0px;" /> 
+		</div>
+		
+		<!-- 人出现在场景中 -->	
+		<div id="scen4">
+			<canvas id="compare" width="320" height="240" style="display:none"></canvas>
+			<canvas id="control" width="320" height="240" style="opacity:0.5"></canvas>
+			<!--<canvas id="debug" width="320" height="240" style="opacity:0.5"></canvas>-->
+		</div>
+		
+		<!-- 显示最终轨迹 -->
+		<div id="scen5">
+			<img src="images/gameView/frame.png" style="position:absolute; left:272px; top:-1px;" />
+			<img name="joke" src="images/gameView/joke.png" style="position:absolute; left:650px; top:590px;" onmouseover="mouseOverJoke();" onmouseout="mouseOutJoke();"  onClick="$('#scen5').hide();$('#scen6').fadeIn();" />
+			<canvas id="trackShow" width="640" height="480" style="position:absolute;left:360px;top:100px;width:640px;height:480px"></canvas>
+		</div>
+		<div id="scen6" style="display:none;">
+			<img src="images/gameView/eg.png" style="position:absolute; top:100px; left:430px;" />
+		</div>
+		
+		<!-- 星座特效 -->
+		<div id="propOne" style="z-index:9999; display:none;">
+			<img src="images/gameView/props/tianxietest.png" style="width:1366px; height:768px;" />
+		</div>
+		<div id="propTwo" style="z-index:9999; display:none;">
+			<img src="images/gameView/props/jinniutest.png" style="width:1366px; height:768px;" />
+		</div>
+		<div id="propThree" style="z-index:9999; display:none;">
+			<img src="images/gameView/props/mojietest.png" style="width:1366px; height:768px;" />
+		</div>
+		
+		<!-- the entrance of the game -->
+		<script type="text/javascript">
+			/*global 1*/
+			var GLOBALTOM = {}; 
+			/*存有人眼的大致区域（人眼状态识别 ）*/
+			GLOBALTOM.AppEyeArea = {
+				x: 0,
+				y: 0,
+				width: 0,
+				height: 0
+			};
+			/*人脸椭圆外接矩形*/
+			GLOBALTOM.MATRIX = {
+				x: 0,
+				y: 0,
+				width: 0,
+				height: 0,
+				mapMatrix: 0
+			}
+			/*头发轮廓的大致区域*/
+			GLOBALTOM.HAIREDGE = {
+				x: 0,
+				y: 0,
+				width: 0,
+				height: 0,
+				hairMatrix: 0
+			}
+			
+			/*嘴巴的大致区域*/
+			GLOBALTOM.MOUTH = {
+				x: 0,
+				y: 0,
+				width: 120,
+				height: 120,
+				mapMatrix: 0,
+				mouthEmptyMatrix: 0,
+				entrance: {x: 0, y: 0},
+				portal: {x: 0, y: 0},
+				gatePass: {x: 0, y: 0}
+			}
+			/*眼睛非皮肤区域（用于迷宫模板定位）*/
+			GLOBALTOM.EYE = {
+				x: 0,
+				y: 0,
+				width: 240,
+				height: 90,
+				mapMatrix: 0,
+				eyeEmptyMatrix: 0,
+				entrance: {x: 0, y: 0},
+				portal: {x: 0, y: 0},
+				gatePass: {x: 0, y: 0}
+			}
+			
+			/**
+			 * program initialization
+			 * including startWebSocket() & take a photo
+			 *
+			**/
+			window.onload = function() {
+			
+				$('#scen2').hide();
+				$('#scen3').hide();
+				$('#scen4').hide();
+				$('#ThreeJS').hide();
+				$('#scen5').hide();
+				
+				// Trigger photo take
+				document.getElementById("snap").addEventListener("click", function() {
+					
+					App.loopFlag = 0;
+					$('#scen1').hide();
+					$('#scen2').fadeIn();
+					App.stream.stop();
+						
+					var canvas = document.getElementById("output");
+					var	context = canvas.getContext("2d");
+					context.drawImage(App.video, 0, 0, canvas.width, canvas.height);
+
+					//定位眼睛区域和嘴巴（含鼻子）区域进行状态识别
+					FACEMATRIX.faceEdge.locateEyeMouthForDetect(App);
+					
+					//result_eye=1,open;result_eye=0,close
+					//result_mouth=1,nature;result_mouth=0,big smile
+					var result_eye, result_mouth;
+					//人眼状态识别
+					result_eye = eyedetect();
+					
+					//嘴部表情识别 
+					result_mouth = FACEMATRIX.toMaze.mouth.mouthDetect();
+	
+					FACEMATRIX.toMaze.matchTemp(result_eye, result_mouth);
+					
+					//获得人脸和其它部位的大致区域
+					FACEMATRIX.faceEdge.getFaceEdge();
+							
+				});
+				
+				/**find your face, and take a photo*/
+				var App = {
+					start: function(stream) {
+						
+						App.stream = stream;
+						App.video.addEventListener('canplay', function() {
+							App.video.removeEventListener('canplay');
+							setTimeout(function() {
+								App.video.play();
+								App.canvas.style.display = 'inline';
+								App.canvas.width = App.video.videoWidth;
+								App.canvas.height = App.video.videoHeight;
+								App.backCanvas.width = App.video.videoWidth / 4;
+								App.backCanvas.height = App.video.videoHeight / 4;
+								App.backContext = App.backCanvas.getContext('2d');
+							
+								var w = 300 / 4 * 0.8,
+									h = 270 / 4 * 0.8;
+							
+								App.comp = [{
+									x: (App.video.videoWidth / 4 - w) / 2,
+									y: (App.video.videoHeight / 4 - h) / 2,
+									width: w, 
+									height: h,
+								}];
+								
+								App.drawToCanvas();
+								
+							}, 500);
+						}, true);
+						
+						var domURL = window.URL || window.webkitURL;
+						App.video.src = domURL ? domURL.createObjectURL(stream) : stream;
+						
+					},
+					denied: function() {
+						alert("denied");
+					},
+					error: function(e) {
+						if (e) {
+							console.error(e);
+						}
+						alert("error");
+					},
+					drawToCanvas: function() {
+						
+						if(App.loopFlag == 1) {
+						
+							var boundCanvas = document.getElementById("boundary");
+							var boundContext = boundCanvas.getContext("2d");
+							boundContext.strokeStyle = "#0066CC";
+							boundContext.lineWidth = 2;
+							boundContext.clearRect(0, 0, boundCanvas.width, boundCanvas.height);
+							boundContext.strokeRect(boundCanvas.width/4, boundCanvas.height/16, boundCanvas.width/2, boundCanvas.height*(7/8));
+						
+						
+							requestAnimationFrame(App.drawToCanvas);
+						
+							var video = App.video,
+								ctx = App.context,
+								backCtx = App.backContext,
+								i,
+								m = 4,
+								w = 4,
+								comp;
+							
+							ctx.drawImage(video, 0, 0, App.canvas.width, App.canvas.height);
+							
+							backCtx.drawImage(video, 0, 0, App.backCanvas.width, App.backCanvas.height);
+							
+							comp = ccv.detect_objects(App.ccv = App.ccv || {
+								canvas: App.backCanvas,
+								cascade_face: cascade_face,
+								interval: 4,
+								min_neighbors: 1
+							});
+							
+							if (comp.length) {
+								App.comp = comp;
+							}
+							
+							ctx.strokeStyle = "#007500";	
+							for (i = App.comp.length; i--; ) {
+								//框出用于眼睛状态识别的眼睛区域
+								ctx.strokeRect((App.comp[i].x - w / 2) * m , (App.comp[i].y - w / 2) * m , (App.comp[i].width + w) * m, (App.comp[i].height + w) * m * (2/3));
+								//框出用于嘴巴状态识别的嘴巴区域
+								ctx.strokeRect((App.comp[i].x - w / 2) * m + (App.comp[i].width + w) * m * (1/4) , (App.comp[i].y - w / 2) * m + (App.comp[i].height + w) * m * (1/2), 
+												(App.comp[i].width + w) * m * (1/2), (App.comp[i].height + w) * m * (1/2));
+							}
+							
+						} else {
+							return 0;
+						}
+						
+					}
+				};
+				
+				App.stream = null;
+				
+				App.loopFlag = 1; //snap后结束requestAnimationFrame
+				
+				App.init = function() {
+					
+					App.video = document.createElement('video');
+					App.backCanvas = document.createElement('canvas');
+					App.canvas = document.querySelector('#vcanvas');
+					App.canvas.style.display = 'none';
+					App.context = App.canvas.getContext('2d');
+					
+					navigator.getUserMedia_ = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+					
+					try {
+						navigator.getUserMedia_({
+							video: true,
+							audio: false
+						}, App.start, App.denied);
+					} catch (e) {
+						try {
+							navigator.getUserMedia_('video', App.start, App.denied);
+						} catch (e) {
+							App.error(e);
+						}
+					}
+					
+					App.video.loop = App.video.muted = true;
+					App.video.load();
+				};
+				
+				App.init();		
+			};
+		</script>
+	</body>		
+</html>

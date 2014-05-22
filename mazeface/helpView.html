@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="en" id="paulrhayes-com" class="no-js">
+<head>
+	<script>try{Typekit.load();}catch(e){}</script>
+	<script type="text/javascript" src="js/publicJs/jquery.js"></script>
+	<script type="text/javascript" src="js/publicJs/button.js"></script>
+	
+</head>
+<body class="experiment">
+
+	<style type="text/css">
+		#experiment {
+			margin:0px;
+			width:540px;
+			height:960px;
+			background-image:url("images/mainView/helpbgmoto.png");
+			-webkit-perspective: 800; 
+			-webkit-perspective-origin: 50% 200px;
+		
+			-moz-perspective: 800; 
+			-moz-perspective-origin: 50% 200px;
+		}
+
+		#cube {
+		  position: relative;
+		  
+		  height: 960px;
+		  width: 540px;
+		  -webkit-transition: -webkit-transform 1s linear;
+		  -webkit-transform-style: preserve-3d;
+		
+		  -moz-transition: -moz-transform 1s linear;
+		  -moz-transform-style: preserve-3d;
+		}
+
+		.face {
+			position: absolute;
+			height: 760px;
+			width: 440px;
+			margin:50px;
+			background-image:url("images/mainView/helptextbg.png");
+			background-color: rgba(50, 50, 50, 0.7);
+			font-size: 27px;
+			line-height: 1em;
+			color: #fff;
+			border: 1px solid #555;
+			border-radius: 3px;
+		}
+		
+
+		#cube .one {
+		  -webkit-transform: translateZ(1px);
+		  -moz-transform: translateZ(1px);
+		}
+
+		#cube .three {
+		  -webkit-transform: rotateY(180deg) translateZ(1px);
+		  -moz-transform: rotateY(180deg) translateZ(1px);
+		}
+
+	</style>
+
+	<div id="experiment">	
+		<div id="cube">
+			<div class="face one">
+				<h1>帮助</h1>
+				<br><br>
+				1、对玩家通过摄像头捕捉的面部图像进行检测，判断昏睡（闭眼）、清醒（睁眼）、自然、大笑四种表情，将表情对应的迷宫模版根据人脸比例加入人脸游戏场景中，同时保留玩家面部轮廓和头发信息，使迷宫能反应玩家的面部特点和表情状态<br><br>
+				2、玩家通过面部移动控制迷宫中小球的移动，获得道具、小心怪物、抵达终点
+			</div>
+			
+			<div class="face three">
+				<br><br><br><br>
+				3、玩家之间可进行游戏对战，一方作为房主上传自己的人脸迷宫，加入方和房主在迷宫中进行对战，用时少者获胜，同时根据轨迹（道具？）在游戏结束时对人脸图像进行装饰<br><br>
+				4、玩家可通过积分或游戏币获得相应的道具，增加游戏的对抗丰富性
+			</div>
+			
+		</div>
+		<img name="left" src="images/mainView/left.png" style="position:absolute; top:820px; left:160px;" onmouseover="mouseOverLeft();" onmouseout="mouseOutLeft();" onclick="doleft();" />
+		<img name="right" src="images/mainView/right.png" style="position:absolute; top:820px; left:270px;" onmouseover="mouseOverRight();" onmouseout="mouseOutRight();" onclick="doright();" />
+		<img name="back" src="images/mainView/back3.png" style="position:absolute; top:820px; left:390px;" onmouseover="mouseOverBack2();" onmouseout="mouseOutBack2();" onclick="Slides.next();" />
+	</div>
+
+	<script>
+		$(function(){
+			$('a.showExp').live('click', function(evt) {
+				evt.preventDefault();
+				$('.fallback').fadeOut('slow', function() {
+					$('.test').fadeIn('slow');
+				});
+			});
+		});
+	</script>
+	<script>
+		var props = 'transform WebkitTransform MozTransform OTransform msTransform'.split(' '),
+			prop,
+			el = document.createElement('div');
+
+		for(var i = 0, l = props.length; i < l; i++) {
+			if(typeof el.style[props[i]] !== "undefined") {
+				prop = props[i];
+				break;
+			}
+		}
+
+		var xAngle = 0, yAngle = 0;/*
+		$('body').keydown(function(evt) {
+			switch(evt.keyCode) {
+				case 37: // left
+					yAngle -= 180;
+					break;		
+				case 39: // right
+					yAngle += 180;
+					break;		
+			};
+			document.getElementById('cube').style[prop] = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
+		});*/
+	</script>
+	<script type="text/javascript" src="js/publicJs/buttonListeners.js"></script>
+</body>
+</html>
